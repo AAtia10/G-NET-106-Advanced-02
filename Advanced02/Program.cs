@@ -20,5 +20,15 @@
             }
             return result;
         }
+
+
+        void PrintReport(List<Product> products,Action<Product> action)
+
+        {
+            for (int i = 0; i < products.Count; i++)
+            {
+                action(products[i]);
+            }
+        }
     }
 }
