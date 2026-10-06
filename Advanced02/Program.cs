@@ -4,14 +4,14 @@
     {
         static void Main(string[] args)
         {
-           
+
         }
 
-        List<Product> SearchProducts(List<Product> products,Func<Product,bool> filter)
+        List<Product> SearchProducts(List<Product> products, Func<Product, bool> filter)
 
         {
             List<Product> result = new List<Product>();
-            for(int i = 0; i < products.Count; i++)
+            for (int i = 0; i < products.Count; i++)
             {
                 if (filter(products[i]))
                 {
@@ -22,7 +22,7 @@
         }
 
 
-        void PrintReport(List<Product> products,Action<Product> action)
+        void PrintReport(List<Product> products, Action<Product> action)
 
         {
             for (int i = 0; i < products.Count; i++)
@@ -32,16 +32,33 @@
         }
 
 
-        List<string> TransformProducts(List<Product> products,Func<Product,string> transform)
+        List<string> TransformProducts(List<Product> products, Func<Product, string> transform)
 
         {
             List<string> result = new List<string>();
 
             for (int i = 0; i < products.Count; i++)
             {
-               result.Add(transform(products[i]));
+                result.Add(transform(products[i]));
             }
             return result;
+        }
+
+
+        List<Product> FilterProducts(List<Product> products, Predicate<Product> predicate)
+        {
+            List<Product> result = new List<Product>();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (predicate(products[i]))
+                {
+                    result.Add(products[i]);
+                }
+            }
+            return result;
+
+
         }
     }
 }
