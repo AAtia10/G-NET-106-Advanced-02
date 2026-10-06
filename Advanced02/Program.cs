@@ -30,5 +30,18 @@
                 action(products[i]);
             }
         }
+
+
+        List<string> TransformProducts(List<Product> products,Func<Product,string> transform)
+
+        {
+            List<string> result = new List<string>();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+               result.Add(transform(products[i]));
+            }
+            return result;
+        }
     }
 }
